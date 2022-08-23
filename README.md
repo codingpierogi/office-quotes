@@ -1,1 +1,3 @@
-# office-quotes
+# Office Quotes
+
+Kubernetes demo.

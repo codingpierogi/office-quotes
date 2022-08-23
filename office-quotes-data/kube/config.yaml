@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: office-quotes
+data:
+  POSTGRES_DB: officequotes
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: password
