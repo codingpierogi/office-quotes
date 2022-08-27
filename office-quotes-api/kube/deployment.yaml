@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: office-quotes-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: office-quotes-api
+  template:
+    metadata:
+      labels:
+        app: office-quotes-api
+    spec:
+      containers:
+        - name: app
+          image: codingpierogi/office-quotes-api
+          imagePullPolicy: "Always"
+          env:
+           - name: DATABASE_URL
+             value: postgresql://admin:password@10.104.234.145:5432/app?schema=officequotes
+          ports:
+            - containerPort: 4000
