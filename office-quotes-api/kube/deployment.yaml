@@ -17,7 +17,17 @@ spec:
           image: codingpierogi/office-quotes-api
           imagePullPolicy: "Always"
           env:
-           - name: DATABASE_URL
-             value: postgresql://admin:password@office-quotes-data:5432/app?schema=officequotes
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: office-quotes-data
+                  key: POSTGRES_USER
+            - name: SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: office-quotes-data
+                  key: POSTGRES_PASSWORD
+            - name: DATABASE_URL
+              value: postgresql://$(USERNAME):$(SECRET)@office-quotes-data:5432/app?schema=officequotes
           ports:
             - containerPort: 4000
