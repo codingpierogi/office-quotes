@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: office-quotes
+  name: office-quotes-data
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: office-quotes
+      app: office-quotes-data
   template:
     metadata:
       labels:
-        app: office-quotes
+        app: office-quotes-data
     spec:
       containers:
         - name: postgres
@@ -20,11 +20,11 @@ spec:
             - containerPort: 5432
           envFrom:
             - configMapRef:
-                name: office-quotes
+                name: office-quotes-data
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgresdb
       volumes:
         - name: postgresdb
           persistentVolumeClaim:
-            claimName: office-quotes
+            claimName: office-quotes-data

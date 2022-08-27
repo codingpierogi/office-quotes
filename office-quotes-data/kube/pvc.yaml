@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: office-quotes
+  name: office-quotes-data
 spec:
-  storageClassName: manual
+  storageClassName: standard
   accessModes:
     - ReadWriteMany
   resources:
