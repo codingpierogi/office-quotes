@@ -18,6 +18,6 @@ spec:
           imagePullPolicy: "Always"
           env:
            - name: DATABASE_URL
-             value: postgresql://admin:password@10.104.234.145:5432/app?schema=officequotes
+             value: postgresql://admin:password@office-quotes-data:5432/app?schema=officequotes
           ports:
             - containerPort: 4000
